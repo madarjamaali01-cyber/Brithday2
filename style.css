@@ -1,0 +1,157 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background:
+        radial-gradient(circle at top left, #023020, transparent 45%),
+        radial-gradient(circle at bottom right, #8b0000, transparent 45%),
+        #050505;
+}
+
+.card {
+    width: 90%;
+    max-width: 380px;
+    padding: 35px 25px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 28px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.rose {
+    font-size: 80px;
+    margin-bottom: 5px;
+    animation: floatRose 3s ease-in-out infinite;
+}
+
+@keyframes floatRose {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+h1 {
+    margin: 5px 0 10px;
+    color: white;
+    font-size: 38px;
+}
+
+.text {
+    color: rgba(255,255,255,0.75);
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 35px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+}
+
+#yesBtn {
+    width: 150px;
+    height: 55px;
+    border: none;
+    border-radius: 30px;
+    background: #023020;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(0, 255, 150, 0.25);
+    transition: 0.25s;
+}
+
+#noBtn {
+    width: 90px;
+    height: 45px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 25px;
+    background: rgba(255,255,255,0.08);
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+#birthdayMessage {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, #350000, #050505 70%);
+    z-index: 100;
+}
+
+.birthday-content {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    animation: birthdayShow 1s ease;
+}
+
+.bigRose {
+    font-size: 100px;
+    animation: rosePop 1s ease;
+}
+
+.birthday-content h2 {
+    margin: 10px 0;
+    color: white;
+    font-size: 45px;
+    line-height: 1.05;
+    text-shadow: 0 0 20px #ff1744;
+}
+
+.birthday-content p {
+    color: white;
+    font-size: 18px;
+}
+
+@keyframes birthdayShow {
+    from { opacity: 0; transform: scale(0.5); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes rosePop {
+    0% { transform: scale(0); }
+    80% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.falling-roses {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.petal {
+    position: absolute;
+    top: -50px;
+    font-size: 30px;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
